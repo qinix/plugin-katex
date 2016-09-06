@@ -38,9 +38,7 @@ module.exports = {
             end: "$"
           },
           process: function(blk) {
-            console.log(blk);
             var tex = blk.body.replace(/\\([^a-zA-Z0-9])/g, "$1");
-            console.log(tex);
             var isInline = true;
             var output = katex.renderToString(tex, {
               displayMode: !isInline
