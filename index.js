@@ -22,7 +22,7 @@ module.exports = {
                 end: "$$"
             },
             process: function(blk) {
-                var tex = blk.body.replace(/\\([^a-zA-Z0-9])/g, "$1");
+                var tex = blk.body.replace(/\\([^a-zA-Z0-9])/g, "$1").replace("&gt;", ">").replace("&lt;", "<");
                 var isInline = false;
                 var output = katex.renderToString(tex, {
                     displayMode: !isInline
@@ -38,7 +38,7 @@ module.exports = {
             end: "$"
           },
           process: function(blk) {
-            var tex = blk.body.replace(/\\([^a-zA-Z0-9])/g, "$1");
+            var tex = blk.body.replace(/\\([^a-zA-Z0-9])/g, "$1").replace("&gt;", ">").replace("&lt;", "<");
             var isInline = true;
             var output = katex.renderToString(tex, {
               displayMode: !isInline
